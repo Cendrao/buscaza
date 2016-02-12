@@ -4,14 +4,6 @@ Promise = require('bluebird'),
 bodyParser = require('body-parser'),
 Busca = require('../lib/Busca');
 
-
-router.get('/casas', function(req,res,next){
-
-	res.json({'teste:' : 'ok'});
-
-});
-
-
 router.post('/casas', function(req, res, next){
 
 	var busca = req.body;
