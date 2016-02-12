@@ -1,0 +1,22 @@
+*{
+	font-family: "Roboto";
+	font-size: 13px;
+}
+
+.form-horizontal{
+	margin: 2em 0;
+}
+
+.casas  { 
+	list-style-type: none;
+	margin: 1em 0;
+	padding: 1em;
+}
+
+.casa { 
+	margin-bottom: 2em;
+	border: 1px solid #ccc;
+	background-color: transparent;
+	border-radius: 25px;
+	padding: 1em;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Buscaza</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body ng-app="buscaza" ng-controller="buscaController">
+
+	<div class="container">
+
+
+		<div class="form-horizontal">
+
+			<div class="form-group">
+				<label class="col-sm-2">Cidade</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="busca.cidade" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2">Preço Máximo</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="busca.precoMaximo" />
+				</div>
+			</div>
+			<button ng-click="fazPesquisa()" class="btn btn-primary">Faz Pesquisa</button>
+
+		</div>
+
+		
+		
+		<ul class="casas">
+			<li class="casa row" ng-repeat="imovel in listaImoveis">
+				<a href={{imovel.Link}} target="_blank">
+					<div class="col-sm-3 img">
+						<img alt="{{imovel.Bairro}}" ng-src="{{imovel.Fotos[0]}}" />
+					</div>
+					<div class="col-sm-8 info">
+						<h4>{{imovel.Bairro}}</h4>
+						<h5>{{imovel.Valor}}</h5>
+
+						<div class="row">
+							<div class="col-xs-2">Quartos</div>
+							<div class="col-xs-2">Vagas</div>
+							<div class="col-xs-2">Área</div>
+
+
+						</div>
+
+						<div class="row">
+							<div class="col-xs-2">{{imovel.Quartos}}</div>
+							<div class="col-xs-2">{{imovel.Vagas}}</div>
+							<div class="col-xs-2">{{imovel.Area}}m²</div>
+
+						</div>
+
+					</div>
+				</li>	
+			</a>			
+		</ul>
+
+
+	</div>
+	<script src="js/angular.min.js"></script>
+	<script src="app/app.js"></script>
+</body>
+</html>
