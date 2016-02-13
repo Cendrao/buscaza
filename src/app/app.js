@@ -1,1 +1,1 @@
-var app = angular.module('buscaza', []);
+var app = angular.module('buscaza', ['ui.bootstrap']);

@@ -7,16 +7,24 @@
 	margin: 2em 0;
 }
 
-.casas  { 
+.casas  {
 	list-style-type: none;
 	margin: 1em 0;
 	padding: 1em;
 }
 
-.casa { 
+.casa {
 	margin-bottom: 2em;
 	border: 1px solid #ccc;
 	background-color: transparent;
 	border-radius: 25px;
 	padding: 1em;
+}
+
+.loading {
+    width: 35px;
+    height: 35px;
+    position: relative;
+    display: inline-block;
+    background: url('http://loadinggif.com/images/image-selection/13.gif);
 }

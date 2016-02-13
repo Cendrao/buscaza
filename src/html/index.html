@@ -25,45 +25,61 @@
 					<input type="text" class="form-control" ng-model="busca.precoMaximo" />
 				</div>
 			</div>
-			<button ng-click="fazPesquisa()" class="btn btn-primary">Faz Pesquisa</button>
+			<button ng-click="fazPesquisa(1)" class="btn btn-primary">Faz Pesquisa</button>
 
 		</div>
 
-		
-		
+
+
 		<ul class="casas">
 			<li class="casa row" ng-repeat="imovel in listaImoveis">
 				<a href={{imovel.Link}} target="_blank">
 					<div class="col-sm-3 img">
-						<img alt="{{imovel.Bairro}}" ng-src="{{imovel.Fotos[0]}}" />
-					</div>
-					<div class="col-sm-8 info">
-						<h4>{{imovel.Bairro}}</h4>
-						<h5>{{imovel.Valor}}</h5>
 
-						<div class="row">
-							<div class="col-xs-2">Quartos</div>
-							<div class="col-xs-2">Vagas</div>
-							<div class="col-xs-2">Área</div>
+						<uib-carousel interval="5000" no-wrap="false">
+						<uib-slide ng-repeat="foto in imovel.Fotos track by $index" active="foto.active" index="$index">
+						<img ng-src="{{foto.Imagem}}" style="margin:auto;">
+					</uib-slide>
+				</uib-carousel>
 
 
-						</div>
 
-						<div class="row">
-							<div class="col-xs-2">{{imovel.Quartos}}</div>
-							<div class="col-xs-2">{{imovel.Vagas}}</div>
-							<div class="col-xs-2">{{imovel.Area}}m²</div>
+			</div>
+			<div class="col-sm-8 info">
 
-						</div>
+				<h4>{{imovel.Bairro}}</h4>
+				<h5>{{imovel.Valor}}</h5>
 
-					</div>
-				</li>	
-			</a>			
-		</ul>
+				<div class="row">
+					<div class="col-xs-2">Quartos</div>
+					<div class="col-xs-2">Vagas</div>
+					<div class="col-xs-2">Área</div>
 
 
-	</div>
-	<script src="js/angular.min.js"></script>
-	<script src="app/app.js"></script>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-2">{{imovel.Quartos}}</div>
+					<div class="col-xs-2">{{imovel.Vagas}}</div>
+					<div class="col-xs-2">{{imovel.Area}}m²</div>
+
+				</div>
+
+			</div>
+		</li>
+	</a>
+	<p class="text-center" ng-show="app.carregando">
+		<i class="loading"></i>
+	</p>
+</ul>
+
+
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/util.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/ui-bootstrap-tpls.js"></script>
+<script src="app/app.js"></script>
 </body>
 </html>

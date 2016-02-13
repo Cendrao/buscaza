@@ -1,5 +1,5 @@
 module.exports = function(grunt){
-	
+
 
 	grunt.initConfig({
 		copy: {
@@ -8,21 +8,29 @@ module.exports = function(grunt){
 				{expand: false, src: ['node_modules/angular/angular.min.js'], dest: 'public/js/angular.min.js'},
 				{expand: false, src: ['node_modules/bootstrap/dist/js/bootstrap.min.js'], dest: 'public/js/bootstrap.min.js'},
 				{expand: false, src: ['node_modules/bootstrap/dist/css/bootstrap.min.css'], dest: 'public/css/bootstrap.min.css'},
-				{expand: false, src: ['node_modules/jquery/dist/jquery.min.js'], dest: 'public/js/jquery.min.js'}
+				{ cwd: 'node_modules/bootstrap/fonts', src: '**/*', dest: 'public/fonts', expand: true },
+				{expand: false, src: ['node_modules/jquery/dist/jquery.min.js'], dest: 'public/js/jquery.min.js'},
+				{expand: false, src: ['node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js'], dest: 'public/js/ui-bootstrap.js'},
+				{expand: false, src: ['node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'], dest: 'public/js/ui-bootstrap-tpls.js'}
 				]
 			},
 			html: {
 				files: [
-					{expand:false, src: ['src/html/index.html'], dest: 'public/index.html'}				
+					{expand:false, src: ['src/html/index.html'], dest: 'public/index.html'}
 				]
-			}			
+			}
 		},
 		uglify: {
 			angularApp: {
 				files: {
 					'public/app/app.js' : ['src/app/app.js', 'src/app/controller.js']
 				}
-			}			
+			},
+			util: {
+				files: {
+					'public/js/util.min.js' : ['src/js/prototype.js', 'src/js/scripts.js']
+				}
+			}
 		},
 		cssmin: {
 			target: {
@@ -35,6 +43,10 @@ module.exports = function(grunt){
 			app: {
 				files: [ 'src/app/**/*' ],
 				tasks: ['uglify:angularApp']
+			},
+			utilities: {
+				files: ['src/js/*.js'],
+				tasks: ['uglify:util']
 			},
 			html: {
 				files: [ 'src/html/*.html' ],
