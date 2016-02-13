@@ -22,9 +22,9 @@
 }
 
 .loading {
-    width: 35px;
-    height: 35px;
-    position: relative;
-    display: inline-block;
-    background: url('http://loadinggif.com/images/image-selection/13.gif);
+	width: 35px;
+	height: 35px;
+	position: relative;
+	display: inline-block;
+	background: url('http://loadinggif.com/images/image-selection/13.gif);
 }
