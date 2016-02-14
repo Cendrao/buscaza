@@ -20,12 +20,19 @@
 			</div>
 
 			<div class="form-group">
+				<label class="col-sm-2">Preço Mínimo</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" ng-model="busca.precoMinimo" />
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label class="col-sm-2">Preço Máximo</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" ng-model="busca.precoMaximo" />
 				</div>
 			</div>
-			<button ng-click="fazPesquisa(1)" class="btn btn-primary">Faz Pesquisa</button>
+			<button ng-click="fazPesquisa(0)" class="btn btn-primary">Faz Pesquisa</button>
 
 		</div>
 
